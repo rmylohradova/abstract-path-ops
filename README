@@ -1,0 +1,24 @@
+1. implement class PATH that will abstract operations with filesystem paths:
+Operations:
+- create instance `p = Path('modified')`
+  *(consider different forms of argument e.g. './modified', 'modified/', '/modified/'...)*
+Note: file itself should not be created, only instance of a class
+- create instance inside existing path:
+`p = Path("modified")
+im_path = p.nest("text.txt")`
+- *p.nest* returns Path instance
+- this becomes possible: *Path("images").nest("modified").nest("image.jpg")*
+- write text to file:
+`p = Path(..)
+p.write_str('hello world'')` here file must be created
+- read text from file:
+- `p = Path(..)
+s = p.read_str()
+print(s)
+--> 'hllo world'`
+- get name and parent path
+`p = Path('images/modified/image.jpg')
+print(p.name)
+--> 'image.jpg'
+print(p.parent)
+--> Path('images/modified')`
